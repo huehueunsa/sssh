@@ -6,7 +6,7 @@
     <title>Lahore Trip Invitation</title>
     <style>
         body {
-            background: url('https://source.unsplash.com/1600x900/?stars,night') no-repeat center center fixed;
+            background: url('https://i.ebayimg.com/images/g/KngAAOSwestkFine/s-l1600.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             color: white;
@@ -21,8 +21,10 @@
         .container {
             max-width: 500px;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.5) !important;
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 15px;
+            position: relative;
+            overflow: hidden;
         }
 
         h1 {
@@ -48,10 +50,34 @@
             display: none;
         }
 
-        .confetti, .saxophone {
+        .confetti, .flowers {
             display: none;
-            font-size: 3rem;
-            margin-top: 20px;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: url('path/to/confetti-image.png') no-repeat center center;
+            background-size: contain;
+            z-index: 10;
+        }
+
+        .flowers {
+            background: url('path/to/flowers-image.png') no-repeat center center;
+            background-size: contain;
+        }
+
+        .pop-out {
+            animation: popOut 1s forwards;
+        }
+
+        @keyframes popOut {
+            from {
+                transform: scale(1) translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: scale(0.5) translateX(200%);
+                opacity: 0;
+            }
         }
 
         #fourthNoMessage {
@@ -69,20 +95,20 @@
         <button id="yesButton">Yes</button>
         <button id="noButton">No</button>
         <div id="followUpText" class="hidden"></div>
-        <div class="confetti">🎉🎉🎉</div>
-        <div class="saxophone">🎷🎷🎷</div>
+        <div class="confetti"></div>
+        <div class="flowers"></div>
         <div id="fourthNoMessage">I didn’t add more options, just say yes already!! 😭😭😭</div>
     </div>
 
     <script>
-        console.log("JavaScript is working!");
-
         let noCount = 0;
 
         document.getElementById('yesButton').addEventListener('click', function() {
             document.querySelector('h1').textContent = 'Thank you! OMG I hope we have the best safar!';
             document.querySelector('.confetti').style.display = 'block';
-            document.querySelector('.saxophone').style.display = 'block';
+            document.querySelector('.flowers').style.display = 'block';
+            document.querySelector('.confetti').classList.add('pop-out');
+            document.querySelector('.flowers').classList.add('pop-out');
             document.getElementById('yesButton').style.display = 'none';
             document.getElementById('noButton').style.display = 'none';
             document.getElementById('followUpText').style.display = 'none';
@@ -113,5 +139,6 @@
     </script>
 </body>
 </html>
+
 
 
