@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lahore Trip Invitation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         body {
-            background: url('https://i.ebayimg.com/images/g/KngAAOSwestkFine/s-l1600.jpg') no-repeat center center fixed;
+            background: url(" https://i.ebayimg.com/images/g/KngAAOSwestkFine/s-l1600.jpg ") no-repeat center center fixed;
             background-size: cover;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-family: 'Roboto', sans-serif;
             color: white;
             display: flex;
             justify-content: center;
@@ -55,14 +56,23 @@
             position: absolute;
             width: 100px;
             height: 100px;
-            background: url('path/to/confetti-image.png') no-repeat center center;
             background-size: contain;
+            background-repeat: no-repeat;
             z-index: 10;
         }
 
+        .confetti {
+            background-image: url('https://example.com/confetti.png'); /* Replace with your confetti image URL */
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
         .flowers {
-            background: url('path/to/flowers-image.png') no-repeat center center;
-            background-size: contain;
+            background-image: url('https://example.com/flowers.png'); /* Replace with your flowers image URL */
+            bottom: 10%;
+            right: 50%;
+            transform: translateX(50%);
         }
 
         .pop-out {
@@ -75,7 +85,7 @@
                 opacity: 1;
             }
             to {
-                transform: scale(0.5) translateX(200%);
+                transform: scale(0.5) translateX(150%);
                 opacity: 0;
             }
         }
@@ -112,6 +122,7 @@
             document.getElementById('yesButton').style.display = 'none';
             document.getElementById('noButton').style.display = 'none';
             document.getElementById('followUpText').style.display = 'none';
+            document.getElementById('fourthNoMessage').style.display = 'none'; // Hide the fourthNoMessage when Yes is pressed
         });
 
         document.getElementById('noButton').addEventListener('click', function() {
@@ -139,6 +150,3 @@
     </script>
 </body>
 </html>
-
-
-
