@@ -3,18 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lahore Trip</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Lahore Trip Invitation</title>
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?stars,night') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 500px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .confetti, .saxophone {
+            display: none;
+            font-size: 3rem;
+            margin-top: 20px;
+        }
+
+        #fourthNoMessage {
+            font-size: 1.2rem;
+            color: yellow;
+            margin-top: 20px;
+            display: none;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="question">Would you wanna go to Lahore with me?</h1>
-        <div class="options">
-            <button id="yesBtn">Yes</button>
-            <button id="noBtn">No</button>
-        </div>
-        <div id="message"></div>
+        <h1>Would you wanna go to Lahore with me?</h1>
+        <button id="yesButton">Yes</button>
+        <button id="noButton">No</button>
+        <div id="followUpText" class="hidden"></div>
+        <div class="confetti">🎉🎉🎉</div>
+        <div class="saxophone">🎷🎷🎷</div>
+        <div id="fourthNoMessage">I didn’t add more options, just say yes already!! 😭😭😭</div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        let noCount = 0;
+
+        document.getElementById('yesButton').addEventListener('click', function() {
+            document.querySelector('h1').textContent = 'Thank you! OMG I hope we have the best safar!';
+            document.querySelector('.confetti').style.display = 'block';
+            document.querySelector('.saxophone').style.display = 'block';
+            document.getElementById('yesButton').style.display = 'none';
+            document.getElementById('noButton').style.display = 'none';
+            document.getElementById('followUpText').style.display = 'none';
+        });
+
+        document.getElementById('noButton').addEventListener('click', function() {
+            noCount++;
+            let followUpText = document.getElementById('followUpText');
+            followUpText.classList.remove('hidden');
+            followUpText.style.fontSize = '1.5rem';
+
+            switch (noCount) {
+                case 1:
+                    followUpText.textContent = "Here's flowers 💐, please say yes!";
+                    break;
+                case 2:
+                    followUpText.textContent = "Here's food 🍔🍟, say yes please!";
+                    break;
+                case 3:
+                    followUpText.textContent = "Pretty please, say yes! 🙏";
+                    break;
+                case 4:
+                    followUpText.style.display = 'none';
+                    document.getElementById('fourthNoMessage').style.display = 'block';
+                    break;
+            }
+        });
+    </script>
 </body>
 </html>
+
