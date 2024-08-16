@@ -54,14 +54,14 @@ button:hover {
 }
 
 .confetti {
-    background-image: url('https://example.com/confetti.png'); /* Replace with your confetti image URL */
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/29/01/18/confetti-1867257_960_720.png'); /* Example confetti image URL */
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .flowers {
-    background-image: url('https://example.com/flowers.png'); /* Replace with your flowers image URL */
+    background-image: url('https://cdn.pixabay.com/photo/2017/08/30/05/10/flowers-2695567_960_720.png'); /* Example flowers image URL */
     bottom: 10%;
     right: 50%;
     transform: translateX(50%);
@@ -87,4 +87,8 @@ button:hover {
     color: yellow;
     margin-top: 20px;
     display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
